@@ -16,7 +16,7 @@ whenReady
     the arguments passed to the condition  conditionArgs : []     (opt)
 ```
 
-* sample usage
+* example
 
 ```
     // when element <div id='slowNDumpy'></div> is loaded dynamically, it will
@@ -33,4 +33,27 @@ whenReady
         return false;
       }
     })();
+```
+
+* you can also create a whenReady function and use it later, useful when 
+  you have a lof of callback chaining
+
+```
+    // when element <div id='slowNDumpy'></div> is loaded dynamically, it will
+    // receive the class fast_n_snappy 
+    var doStuff = whenReady({
+      cb: function(slowNDumpy) {
+        slowAndDumpy.className = 'fast_n_snappy';
+      },
+      condition: function() {
+        var someElem;
+        if (someElem = document.getElementById('slowNDumpy')) {
+          return someElem;
+        }
+        return false;
+      }
+    });
+
+    // wait a second, then start the whenReady polling
+    setTimeout(doStuff, 1000);
 ```
