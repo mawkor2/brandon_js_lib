@@ -5,7 +5,7 @@ whenReady
 ---------
 
 * whenReady is syntactic sugar for creating an arbitrary conditional polling 
-  callback mechanism. it is configurable, meaning you can pass in
+  callback mechanism using the Command and Observer patterns. it is configurable, meaning you can pass in
 
 ```
     the callback.                                     cb : f(){}  (req)
